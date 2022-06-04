@@ -1,0 +1,13 @@
+{
+    "name": "@nimo/config-babel",
+    "version": "1.0.0",
+    "files": [
+        "index.js"
+    ],
+    "dependencies": {
+        "@babel/core": "^7.17.9",
+        "@babel/preset-env": "^7.16.11",
+        "@babel/preset-react": "^7.16.7",
+        "@babel/preset-typescript": "^7.16.7"
+    }
+}

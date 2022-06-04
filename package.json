@@ -1,0 +1,23 @@
+{
+  "name": "@nmorel/monobookmarks",
+  "version": "1.0.0",
+  "repository": "https://github.com/nmorel/monobookmarks.git",
+  "author": "Nicolas Morel <nmr.morel@gmail.com>",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "libs/*"
+    ],
+    "nohoist": [
+      "**/module-alias"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "turbo": "^1.2.16"
+  },
+  "scripts": {
+    "ci": "yarn install --frozen-lockfile"
+  }
+}

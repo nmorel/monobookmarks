@@ -8,7 +8,6 @@ const {WebpackManifestPlugin} = require('webpack-manifest-plugin')
 const path = require('node:path')
 const fs = require('node:fs')
 const {capitalCase, snakeCase, paramCase} = require('change-case')
-const manifestGlobalCss = require('@nimo/ui-global-css/dist/manifest.json')
 
 const isProd = process.env.NODE_ENV === 'production'
 const isFastRefreshEnabled = process.env.FAST_REFRESH === 'true'
@@ -27,7 +26,7 @@ module.exports = ({baseDir, name, publicPath, port, exposes, remotes} = {}) => {
   const outputPath = path.resolve(baseDir, 'dist')
   const globalCssFolder = require
     .resolve(`@nimo/ui-global-css/dist/manifest.json`)
-    .replace('manifest.json', '/')
+    .replace('manifest.json', '')
 
   return {
     entry: ['./src/index'],

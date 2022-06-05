@@ -17,7 +17,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.js'],
+      files: ['*.js', 'scripts/*.js'],
       extends: ['plugin:node/recommended'],
       parserOptions: {
         allowImportExportEverywhere: true,

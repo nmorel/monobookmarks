@@ -1,0 +1,18 @@
+{
+  "name": "@nimo/ui-global-css",
+  "version": "1.0.0",
+  "files": [
+    "dist/*"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@nimo/config-eslint": "*",
+    "@nimo/browserslist-config": "*",
+    "browserslist": "^4.20.3",
+    "@parcel/css": "^1.9.0"
+  },
+  "scripts": {
+    "build": "rm -rf dist/* && node ./scripts/build.js",
+    "lint": "eslint"
+  }
+}

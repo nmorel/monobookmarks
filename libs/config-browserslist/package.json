@@ -1,0 +1,13 @@
+{
+  "name": "@nimo/browserslist-config",
+  "version": "1.0.0",
+  "files": [
+    "index.js"
+  ],
+  "devDependencies": {
+    "@nimo/config-eslint": "*"
+  },
+  "scripts": {
+    "lint": "eslint"
+  }
+}

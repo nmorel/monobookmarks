@@ -1,0 +1,36 @@
+body {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell,
+    sans-serif;
+}
+
+.ga0 {
+  gap: 0;
+}
+
+.ga1 {
+  gap: 0.25rem;
+}
+
+.ga2 {
+  gap: 0.5rem;
+}
+
+.ga3 {
+  gap: 1rem;
+}
+
+.ga4 {
+  gap: 2rem;
+}
+
+.ga5 {
+  gap: 4rem;
+}
+
+.ga6 {
+  gap: 8rem;
+}
+
+.ga7 {
+  gap: 16rem;
+}

@@ -33,7 +33,7 @@ async function build() {
     // Write css file using the hash
     fs.writeFile(path.join(distFolder, filename), code, 'utf-8'),
     // Writing a manifest
-    fs.writeFile(path.join(distFolder, 'manifest.json'), `{"main.css": "${filename}"}`),
+    fs.writeFile(path.join(distFolder, 'manifest.json'), `{"main.css": "/${filename}"}`),
   ])
 }
 

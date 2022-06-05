@@ -1,6 +1,7 @@
 const prettierConfig = require('@nimo/config-prettier')
 
 module.exports = {
+  ignorePatterns: ['node_modules/**', '.turbo/**', 'dist/**'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
@@ -13,6 +14,7 @@ module.exports = {
   plugins: ['@typescript-eslint', 'prettier', 'import'],
   rules: {
     '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
     'prettier/prettier': ['error', prettierConfig],
   },
   overrides: [
@@ -27,6 +29,7 @@ module.exports = {
       rules: {
         'no-restricted-syntax': 'off',
         'no-use-before-define': 'off',
+        'node/no-unpublished-require': 'off',
         '@typescript-eslint/no-var-requires': 'off',
       },
     },

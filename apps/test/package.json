@@ -1,0 +1,21 @@
+{
+  "name": "@nimo/test",
+  "version": "1.0.0",
+  "dependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "devDependencies": {
+    "@nimo/config-eslint": "*",
+    "@nimo/config-ts": "*",
+    "@nimo/config-webpack": "*",
+    "@types/react": "^18.0.11",
+    "@types/react-dom": "^18.0.5"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production webpack",
+    "lint": "eslint .",
+    "start": "FAST_REFRESH=true webpack serve",
+    "tscheck": "tsc --noEmit"
+  }
+}

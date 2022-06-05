@@ -13,6 +13,6 @@
   },
   "scripts": {
     "build": "rm -rf dist/* && node ./scripts/build.js",
-    "lint": "eslint"
+    "lint": "eslint ."
   }
 }

@@ -8,6 +8,6 @@
     "@nimo/config-eslint": "*"
   },
   "scripts": {
-    "lint": "eslint"
+    "lint": "eslint ."
   }
 }

@@ -7,4 +7,9 @@ declare type Bookmark = {
   preview: string
   width: number
   height: number
+  thumbnail: {
+    url: string
+    width: number
+    height: number
+  } | null
 }

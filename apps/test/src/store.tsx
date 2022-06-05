@@ -6,6 +6,10 @@ type Action =
       bookmark: Bookmark
     }
   | {
+      type: 'update'
+      bookmark: Bookmark
+    }
+  | {
       type: 'delete'
       url: string
     }
@@ -17,6 +21,12 @@ function reducer(state: Bookmark[], action: Action) {
   switch (action.type) {
     case 'add': {
       return [action.bookmark, ...state.filter(bk => bk.url !== action.bookmark.url)]
+    }
+    case 'update': {
+      return state.map(bk => {
+        if (bk.url !== action.bookmark.url) return bk
+        return action.bookmark
+      })
     }
     case 'delete': {
       return state.filter(bk => bk.url !== action.url)

@@ -5,7 +5,7 @@ export function BookmarkList() {
   const bookmarks = useBookmarks()
   return (
     <section>
-      <ul className="pa0 ma0" style={{listStyleType: 'none'}}>
+      <ul className="flex flex-column ga2 pa2 ma0" style={{listStyleType: 'none'}}>
         {bookmarks.map(bookmark => (
           <li key={bookmark.url}>
             <BookmarkCard bookmark={bookmark} />

@@ -1,4 +1,5 @@
 import {FormEventHandler, useState} from 'react'
+import {fetchMetadata} from '../../helpers/fetchMetadata'
 import {useBookmarksDispatch} from '../../store'
 
 const NAME_URL = 'url'
@@ -12,42 +13,17 @@ export function BookmarkForm() {
 
     setIsSubmitting(true)
 
+    const form = evt.currentTarget as HTMLFormElement
+    const formData = new FormData(form)
+    const url = `${formData.get(NAME_URL)}`
+
     try {
-      const form = evt.currentTarget as HTMLFormElement
-      const formData = new FormData(form)
-      const url = `${formData.get(NAME_URL)}`
-      const response = await (
-        await fetch(`https://noembed.com/embed?url=${encodeURIComponent(url)}`)
-      ).json()
-      if (response.error) {
-        throw new Error(response.error)
-      }
-      if (!['photo', 'video'].includes(response.type)) {
-        throw new Error('Only video and photo providers are allowed')
-      }
-      if (!response.width || !response.height || !response.html) {
-        throw new Error('No width, height or html returned')
-      }
-
-      dispatch({
-        type: 'add',
-        bookmark: {
-          url: response.url,
-          provider: response.provider_name,
-          title: response.title,
-          author: response.author_name,
-          type: response.type,
-          preview: response.html,
-          width: response.width,
-          height: response.height,
-        },
-      })
-
-      form.reset()
+      const bookmark = await fetchMetadata(url)
+      dispatch({type: 'add', bookmark})
     } catch (err) {
-      console.error(err)
-      window.alert('Sorry, an error occured while fetching the data. Please try again later.')
+      window.alert(`${err}`)
     } finally {
+      form.reset()
       setIsSubmitting(false)
     }
   }

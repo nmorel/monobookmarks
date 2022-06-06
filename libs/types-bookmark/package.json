@@ -1,0 +1,19 @@
+{
+  "name": "@nimo/types-bookmark",
+  "version": "1.0.0",
+  "main": "",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@nimo/config-eslint": "*"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  }
+}

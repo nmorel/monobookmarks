@@ -30,6 +30,7 @@ module.exports = {
         'no-restricted-syntax': 'off',
         'no-use-before-define': 'off',
         'node/no-unpublished-require': 'off',
+        'node/no-unsupported-features/es-syntax': 'off',
         '@typescript-eslint/no-var-requires': 'off',
       },
     },

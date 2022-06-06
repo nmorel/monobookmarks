@@ -1,0 +1,4 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@nimo/config-ts/react.json"
+}

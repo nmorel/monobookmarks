@@ -5,6 +5,7 @@
     "web.js"
   ],
   "dependencies": {
+    "@nimo/mf-shared-libs": "*",
     "@nimo/ui-global-css": "*",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "babel-loader": "^8.2.5",

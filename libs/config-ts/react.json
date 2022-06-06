@@ -4,7 +4,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "target": "ES2018",
-    "types": ["jest", "@testing-library/jest-dom", "jest-fetch-mock"],
+    "types": ["jest", "@testing-library/jest-dom", "@nimo/types-bookmark"],
 
     "allowJs": true,
     "allowSyntheticDefaultImports": true,

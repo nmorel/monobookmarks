@@ -1,0 +1,18 @@
+{
+  "name": "@nimo/mf-shared-libs",
+  "version": "1.0.0",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-router-dom": "^6.3.0"
+  },
+  "devDependencies": {
+    "@nimo/config-eslint": "*"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  }
+}

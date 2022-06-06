@@ -5,6 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const {WebpackManifestPlugin} = require('webpack-manifest-plugin')
+const sharedLibs = require('@nimo/mf-shared-libs')
 const path = require('node:path')
 const fs = require('node:fs')
 const {capitalCase, snakeCase, paramCase} = require('change-case')
@@ -96,24 +97,20 @@ module.exports = ({baseDir, name, publicPath, port, exposes, remotes} = {}) => {
     },
 
     plugins: [
-      ...(exposes || remotes?.length
-        ? [
-            new ModuleFederationPlugin({
-              name: snakeName,
-              filename: 'remoteEntry.js',
-              remotes: remotes?.length
-                ? remotes.reduce((acc, remoteName) => {
-                    acc[snakeCase(remoteName)] = `${snakeCase(remoteName)}@/static/${paramCase(
-                      remoteName
-                    )}/remoteEntry.js`
-                    return acc
-                  }, {})
-                : undefined,
-              exposes,
-              // shared: [mfSharedLibraries],
-            }),
-          ]
-        : []),
+      new ModuleFederationPlugin({
+        name: snakeName,
+        filename: 'remoteEntry.js',
+        remotes: remotes?.length
+          ? remotes.reduce((acc, remoteName) => {
+              acc[snakeCase(remoteName)] = `${snakeCase(remoteName)}@/static/${paramCase(
+                remoteName
+              )}/remoteEntry.js`
+              return acc
+            }, {})
+          : undefined,
+        exposes,
+        shared: [sharedLibs],
+      }),
       new CopyPlugin({
         patterns: [
           {

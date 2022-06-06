@@ -5,6 +5,7 @@
     "react.json"
   ],
   "dependencies": {
+    "@nimo/types-bookmark": "*",
     "@testing-library/jest-dom": "^5.16.4",
     "@types/jest": "^28.1.1",
     "@types/jest-json-schema": "^6.1.0",

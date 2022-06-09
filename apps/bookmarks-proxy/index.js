@@ -1,12 +1,16 @@
-const http = require('http')
-const serveHandler = require('serve-handler')
-const {request} = require('undici')
-const httpProxy = require('http-proxy')
+import http from 'http'
+import serveHandler from 'serve-handler'
+import got from 'got'
+import httpProxy from 'http-proxy'
+import fs from 'node:fs'
+import path from 'node:path'
+import {createRequire} from 'module'
 
+const require = createRequire(import.meta.url)
 const host = process.env.HOST || 'localhost'
 
-function packageToDist(package) {
-  return require.resolve(`@nimo/${package}/package.json`).replace('package.json', 'dist')
+function packageToDist(pkg) {
+  return require.resolve(`@nimo/${pkg}/package.json`).replace('package.json', 'dist')
 }
 
 //
@@ -38,9 +42,8 @@ const services = {
   },
 }
 
-async function requestManifest(url) {
-  const {body} = await request(url)
-  return body.json()
+function requestManifest(url) {
+  return got(url, {retry: {limit: 0}}).json()
 }
 
 async function isDevServer(service) {
@@ -54,28 +57,31 @@ async function isDevServer(service) {
   }
 }
 
-// function shouldRedirectToIndex(url) {
-//   return !/\/.*\.(js|css|html|json|ico)$/.test(url)
-// }
+function shouldRedirectToIndex(url) {
+  return url.substring(url.lastIndexOf('/')).indexOf('.') < 0
+}
 
 function isUrlToService(service, url) {
   return url.startsWith(services[service].publicPath)
 }
 
 async function proxyUrlToService(service, url, req, res) {
-  //   use rewrites ? https://github.com/vercel/serve-handler#rewrites-array
-  //   const redirectToIndex = shouldRedirectToIndex(url)
-  //   if (redirectToIndex) {
-  //     // redirect to index
-  //     services[service].staticHandler(req, res)
-  //     return
-  //   }
-
+  const redirectToIndex = shouldRedirectToIndex(url)
   const isDevServerRunning = await isDevServer(service)
   if (isDevServerRunning) {
-    proxy.web(req, res, {target: `http://${host}:${services[service].port}`})
+    if (redirectToIndex) {
+      got
+        .stream(`http://${host}:${services[service].port}${services[service].publicPath}index.html`)
+        .pipe(res)
+    } else {
+      proxy.web(req, res, {target: `http://${host}:${services[service].port}`})
+    }
   } else {
-    services[service].staticHandler(req, res)
+    if (redirectToIndex) {
+      fs.createReadStream(path.join(packageToDist(service), 'index.html')).pipe(res)
+    } else {
+      services[service].staticHandler(req, res)
+    }
   }
 }
 

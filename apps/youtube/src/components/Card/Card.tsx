@@ -1,3 +1,9 @@
+import {Link} from 'react-router-dom'
+
 export function Card({bookmark}: {bookmark: YoutubeBookmark}) {
-  return <div>YouTube card | {bookmark.url}</div>
+  return (
+    <Link to={`/youtube/${bookmark.slug}`}>
+      <div>YouTube carddd | {bookmark.url}</div>
+    </Link>
+  )
 }

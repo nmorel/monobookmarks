@@ -2,6 +2,7 @@
   "name": "@nimo/bookmarks",
   "version": "1.0.0",
   "dependencies": {
+    "@nimo/slugify": "*",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0"

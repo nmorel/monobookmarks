@@ -1,4 +1,4 @@
-export async function fetchMetadata(url: string): Promise<Bookmark> {
+export async function fetchMetadata(url: string): Promise<BookmarkData> {
   let response: any = null
   try {
     response = await (

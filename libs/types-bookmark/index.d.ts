@@ -1,4 +1,5 @@
 interface BaseBookmark {
+  slug: string
   url: string
   provider: string
   type: string
@@ -38,3 +39,5 @@ declare interface DefaultBookmark extends PhotoVideoBookmark {
 }
 
 declare type Bookmark = YoutubeBookmark | VimeoBookmark | FlickrBookmark | DefaultBookmark
+
+declare type BookmarkData = Omit<Bookmark, 'slug'>

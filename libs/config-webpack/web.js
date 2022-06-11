@@ -70,7 +70,7 @@ module.exports = ({baseDir, name, publicPath, port, exposes, remotes} = {}) => {
       rules: [
         {
           test: /\.(js|jsx|ts|tsx)$/,
-          exclude: /node_modules\/(?!(@kop\/.*\/src)\/).*/,
+          exclude: /node_modules\//,
           use: [
             {
               loader: 'babel-loader',

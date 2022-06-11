@@ -1,13 +1,14 @@
+import {uniqSlug} from '@nimo/slugify'
 import {createContext, Dispatch, PropsWithChildren, useContext, useReducer} from 'react'
 
 type Action =
   | {
       type: 'add'
-      bookmark: Bookmark
+      bookmark: BookmarkData
     }
   | {
       type: 'update'
-      bookmark: Bookmark
+      bookmark: BookmarkData
     }
   | {
       type: 'delete'
@@ -20,12 +21,23 @@ const BookmarksDispatchContext = createContext<Dispatch<Action> | null>(null)
 function reducer(state: Bookmark[], action: Action) {
   switch (action.type) {
     case 'add': {
-      return [action.bookmark, ...state.filter(bk => bk.url !== action.bookmark.url)]
+      const alreadyPresentBookmark = state.find(bk => bk.url === action.bookmark.url)
+      const otherBookmarks = state.filter(bk => bk.url !== action.bookmark.url)
+      let slug: string
+      if (alreadyPresentBookmark) {
+        slug = alreadyPresentBookmark.slug
+      } else {
+        slug = uniqSlug(action.bookmark.title, otherBookmarks, bk => bk.slug)
+      }
+      return [{...action.bookmark, slug}, ...otherBookmarks]
     }
     case 'update': {
       return state.map(bk => {
         if (bk.url !== action.bookmark.url) return bk
-        return action.bookmark
+        return {
+          ...bk,
+          ...action.bookmark,
+        }
       })
     }
     case 'delete': {

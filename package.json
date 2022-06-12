@@ -18,6 +18,10 @@
     "turbo": "^1.2.16"
   },
   "scripts": {
-    "ci": "yarn install --frozen-lockfile"
+    "build": "turbo run build",
+    "ci": "yarn install --frozen-lockfile",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "tscheck": "turbo run tscheck"
   }
 }

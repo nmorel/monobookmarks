@@ -1,4 +1,3 @@
-#!/usr/bin/env zx
 import path from 'node:path'
 import fs from 'node:fs/promises'
 import {createRequire} from 'module'

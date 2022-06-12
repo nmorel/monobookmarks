@@ -21,7 +21,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.js', 'scripts/*.js', '*.cjs'],
+      files: ['*.js', 'scripts/*.mjs', '*.cjs'],
       extends: ['plugin:node/recommended'],
       parserOptions: {
         allowImportExportEverywhere: true,
@@ -39,23 +39,8 @@ module.exports = {
     },
     {
       files: ['scripts/*.mjs'],
-      extends: ['plugin:node/recommended'],
-      parserOptions: {
-        allowImportExportEverywhere: true,
-        ecmaVersion: 2021,
-        sourceType: 'module',
-      },
       globals: {
         $: 'readonly',
-      },
-      rules: {
-        'no-restricted-syntax': 'off',
-        'no-use-before-define': 'off',
-        'node/no-unpublished-require': 'off',
-        'node/no-unsupported-features/es-syntax': 'off',
-        'node/no-missing-import': 'off',
-        'node/shebang': 'off',
-        '@typescript-eslint/no-var-requires': 'off',
       },
     },
     {

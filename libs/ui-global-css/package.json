@@ -9,10 +9,11 @@
     "@nimo/browserslist-config": "*",
     "@nimo/config-eslint": "*",
     "@parcel/css": "^1.10.0",
-    "browserslist": "^4.20.4"
+    "browserslist": "^4.20.4",
+    "zx": "^6.2.4"
   },
   "scripts": {
-    "build": "rm -rf dist/* && node ./scripts/build.js",
+    "build": "zx ./scripts/build.mjs",
     "lint": "eslint ."
   }
 }

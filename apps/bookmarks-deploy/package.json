@@ -1,0 +1,21 @@
+{
+  "name": "@nimo/bookmarks-deploy",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "@nimo/bookmarks": "*",
+    "@nimo/youtube": "*"
+  },
+  "devDependencies": {
+    "@nimo/config-eslint": "*",
+    "serve": "^13.0.2",
+    "zx": "^6.2.4"
+  },
+  "scripts": {
+    "build": "zx ./scripts/build.mjs",
+    "lint": "eslint .",
+    "start": "serve ./dist"
+  }
+}

@@ -15,11 +15,13 @@ module.exports = {
   rules: {
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-explicit-any': 'off',
+    'import/no-unresolved': ['error', {ignore: ['got']}],
     'prettier/prettier': ['error', prettierConfig],
   },
   overrides: [
     {
-      files: ['*.js', 'scripts/*.js'],
+      files: ['*.js', 'scripts/*.js', '*.cjs'],
       extends: ['plugin:node/recommended'],
       parserOptions: {
         allowImportExportEverywhere: true,
@@ -31,6 +33,7 @@ module.exports = {
         'no-use-before-define': 'off',
         'node/no-unpublished-require': 'off',
         'node/no-unsupported-features/es-syntax': 'off',
+        'node/no-missing-import': 'off',
         '@typescript-eslint/no-var-requires': 'off',
       },
     },

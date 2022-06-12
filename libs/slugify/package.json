@@ -19,7 +19,6 @@
     "build:esm": "tsc -p tsconfig.json",
     "build:cjs": "tsc -p tsconfig-cjs.json",
     "lint": "eslint .",
-    "start": "FAST_REFRESH=false webpack serve",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "tscheck": "tsc --noEmit"

@@ -6,10 +6,10 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@nimo/config-eslint": "*",
     "@nimo/browserslist-config": "*",
-    "browserslist": "^4.20.3",
-    "@parcel/css": "^1.9.0"
+    "@nimo/config-eslint": "*",
+    "@parcel/css": "^1.10.0",
+    "browserslist": "^4.20.4"
   },
   "scripts": {
     "build": "rm -rf dist/* && node ./scripts/build.js",

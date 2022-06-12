@@ -11,13 +11,13 @@
     "@nimo/config-eslint": "*",
     "@nimo/config-ts": "*",
     "@nimo/config-webpack": "*",
-    "@types/react": "^18.0.11",
+    "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5"
   },
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "lint": "eslint .",
-    "start": "FAST_REFRESH=false webpack serve",
+    "start": "FAST_REFRESH=true webpack serve",
     "tscheck": "tsc --noEmit"
   }
 }

@@ -20,8 +20,8 @@
   "scripts": {
     "build": "turbo run build",
     "ci": "yarn install --frozen-lockfile",
-    "lint": "turbo run lint --only --parallel",
-    "test": "turbo run test --only --parallel",
-    "tscheck": "turbo run tscheck --only --parallel"
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "tscheck": "turbo run tscheck"
   }
 }

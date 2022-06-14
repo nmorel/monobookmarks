@@ -1,5 +1,5 @@
 {
-  "name": "@nimo/bookmarks-proxy",
+  "name": "@nimo/proxy",
   "version": "1.0.0",
   "type": "module",
   "engines": {

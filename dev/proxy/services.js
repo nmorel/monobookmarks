@@ -42,7 +42,7 @@ const headers = [
   },
 ]
 
-const appsFolder = path.join(__dirname, '..')
+const appsFolder = path.join(__dirname, '../../apps')
 const files = await fs.readdir(appsFolder)
 export const services = (
   await Promise.all(

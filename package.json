@@ -8,6 +8,7 @@
     "packages": [
       "apps/*",
       "config/*",
+      "dev/*",
       "libs/*"
     ],
     "nohoist": [

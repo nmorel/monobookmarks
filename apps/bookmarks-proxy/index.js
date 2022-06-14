@@ -13,6 +13,45 @@ function packageToDist(pkg) {
   return require.resolve(`@nimo/${pkg}/package.json`).replace('package.json', 'dist')
 }
 
+const cacheHeaders = [
+  {
+    source: '**/*',
+    headers: [
+      {
+        key: 'Cache-Control',
+        value: 'public, max-age=31536000',
+      },
+    ],
+  },
+  {
+    source: '/',
+    headers: [
+      {
+        key: 'Cache-Control',
+        value: 'no-store, max-age=0',
+      },
+    ],
+  },
+  {
+    source: '/index.html',
+    headers: [
+      {
+        key: 'Cache-Control',
+        value: 'no-store, max-age=0',
+      },
+    ],
+  },
+  {
+    source: '/remoteEntry.js',
+    headers: [
+      {
+        key: 'Cache-Control',
+        value: 'no-store, max-age=0',
+      },
+    ],
+  },
+]
+
 //
 // Create a proxy server with custom application logic
 //
@@ -23,6 +62,7 @@ const services = {
     publicPath: '/',
     staticHandler: (req, res) =>
       serveHandler(req, res, {
+        headers: cacheHeaders,
         public: packageToDist('bookmarks'),
       }),
   },
@@ -31,6 +71,7 @@ const services = {
     publicPath: '/static/youtube/',
     staticHandler: (req, res) =>
       serveHandler(req, res, {
+        headers: cacheHeaders,
         public: packageToDist('youtube'),
         rewrites: [
           {

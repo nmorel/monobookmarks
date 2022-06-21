@@ -22,6 +22,7 @@
   "scripts": {
     "build": "turbo run build",
     "ci": "yarn install --frozen-lockfile",
+    "graph": "npx nx@latest graph",
     "lint": "turbo run lint",
     "test": "turbo run test",
     "tscheck": "turbo run tscheck"

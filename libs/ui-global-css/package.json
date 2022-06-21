@@ -8,9 +8,9 @@
   "devDependencies": {
     "@nimo/browserslist-config": "*",
     "@nimo/config-eslint": "*",
-    "@parcel/css": "^1.10.0",
-    "browserslist": "^4.20.4",
-    "zx": "^6.2.4"
+    "@parcel/css": "^1.10.1",
+    "browserslist": "^4.21.0",
+    "zx": "^7.0.1"
   },
   "scripts": {
     "build": "zx ./scripts/build.mjs",

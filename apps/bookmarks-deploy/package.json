@@ -11,7 +11,7 @@
   "devDependencies": {
     "@nimo/config-eslint": "*",
     "serve": "^13.0.2",
-    "zx": "^6.2.4"
+    "zx": "^7.0.1"
   },
   "scripts": {
     "build": "zx ./scripts/build.mjs",

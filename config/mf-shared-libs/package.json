@@ -10,7 +10,8 @@
     "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
-    "@nimo/config-eslint": "*"
+    "@nimo/config-eslint": "*",
+    "eslint": "^8.18.0"
   },
   "scripts": {
     "lint": "eslint ."

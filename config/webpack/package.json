@@ -20,7 +20,8 @@
     "webpack-manifest-plugin": "^5.0.0"
   },
   "devDependencies": {
-    "@nimo/config-eslint": "*"
+    "@nimo/config-eslint": "*",
+    "eslint": "^8.18.0"
   },
   "scripts": {
     "lint": "eslint ."

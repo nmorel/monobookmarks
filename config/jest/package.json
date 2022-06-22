@@ -6,7 +6,8 @@
     "setupTests.ts"
   ],
   "devDependencies": {
-    "@nimo/config-eslint": "*"
+    "@nimo/config-eslint": "*",
+    "eslint": "^8.18.0"
   },
   "scripts": {
     "lint": "eslint ."

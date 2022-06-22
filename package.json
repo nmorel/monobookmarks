@@ -18,7 +18,6 @@
   },
   "scripts": {
     "build": "yarn runAll build",
-    "ci": "yarn install --immutable",
     "runAll": "yarn turbo run",
     "graph": "npx nx@latest graph",
     "lint": "yarn runAll lint",

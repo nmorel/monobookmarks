@@ -24,6 +24,7 @@
     "eslint": "^8.18.0"
   },
   "scripts": {
+    "build": "echo webpack",
     "lint": "eslint ."
   }
 }

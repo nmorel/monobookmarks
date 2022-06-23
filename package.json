@@ -13,9 +13,12 @@
       "libs/*"
     ]
   },
+  "devDependencies": {
+    "turbo": "^1.2.16"
+  },
   "scripts": {
     "graph": "npx nx@latest graph",
-    "runAll": "yarn workspaces foreach --parallel --topological-dev --exclude @nimo/monobookmarks run",
+    "runAll": "yarn turbo run",
     "build": "yarn runAll build",
     "lint": "yarn runAll lint",
     "test": "yarn runAll test",

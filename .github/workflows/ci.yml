@@ -31,16 +31,7 @@ jobs:
         run: yarn install
 
       - name: Build
-        run: yarn build
-
-      - name: Test
-        run: yarn test
-
-      - name: Lint
-        run: yarn lint
-
-      - name: TS check
-        run: yarn tscheck
+        run: yarn ci
 
       # - name: Deploy to Production
       #   uses: amondnet/vercel-action@v25

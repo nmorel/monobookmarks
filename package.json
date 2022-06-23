@@ -22,6 +22,7 @@
     "build": "yarn runAll build",
     "lint": "yarn runAll lint",
     "test": "yarn runAll test",
-    "tscheck": "yarn runAll tscheck"
+    "tscheck": "yarn runAll tscheck",
+    "ci": "yarn turbo run lint test tscheck build"
   }
 }
